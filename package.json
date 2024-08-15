@@ -1,0 +1,25 @@
+{
+  "name": "axios-curling",
+  "version": "0.1.0",
+  "description": "axios logging adapter for curl",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && rollup --config rollup.config.mjs",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@vitest/coverage-v8": "^2.0.5",
+    "axios": "^1.7.4",
+    "rollup": "^4.20.0",
+    "tslib": "^2.6.3",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  },
+  "peerDependencies": {
+    "axios": "1.x"
+  }
+}
