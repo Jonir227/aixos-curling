@@ -1,5 +1,5 @@
-function test() {
-  console.log('test')
-}
+import axiosCurling, { clearAxiosCurling } from './axiosCurling.ts';
 
-export default test;
+export { clearAxiosCurling };
+
+export default axiosCurling;

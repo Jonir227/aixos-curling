@@ -2,8 +2,15 @@
   "name": "axios-curling",
   "version": "0.1.0",
   "description": "axios logging adapter for curl",
-  "main": "index.js",
+  "type": "module",
+  "main": "./dist/cjs/lib.cjs",
+  "types": "./types/cjs/index.d.ts",
+  "files": [
+    "dist",
+    "types"
+  ],
   "scripts": {
+    "prebuild": "rm -rf dist && rm -rf types",
     "build": "tsc && rollup --config rollup.config.mjs",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage"
@@ -11,9 +18,11 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@rollup/plugin-typescript": "^11.1.6",
+    "@rollup/plugin-swc": "^0.3.1",
+    "@swc/core": "^1.7.11",
     "@vitest/coverage-v8": "^2.0.5",
     "axios": "^1.7.4",
+    "msw": "^2.3.5",
     "rollup": "^4.20.0",
     "tslib": "^2.6.3",
     "typescript": "^5.5.4",
@@ -21,5 +30,17 @@
   },
   "peerDependencies": {
     "axios": "1.x"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./types/index.d.ts",
+        "default": "./dist/mjs/lib.js"
+      },
+      "require": {
+        "types": "./types/index.d.ts",
+        "default": "./dist/cjs/lib.cjs"
+      }
+    }
   }
 }
